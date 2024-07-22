@@ -1,0 +1,40 @@
+<!-- not to be confused with 'patients' -->
+<!-- this looks like it should work -->
+{% extends "base.html" %}
+{% block body %}
+<h1 class="mb-4">Add/Update patient</h1>
+<form id="updatePatient" action="{{form_action}}" method="post"> 
+  <div class="mb-3">
+    <label for="patientID" class="form-label">Patient Identifier: </label>
+    <input type="text" class="form_control" name="patientID" value="{{patient['patient_id']}}" required>
+  </div>
+  <div class="mb-3">
+    <label for="doctorID" class="form-label">Doctor Identifier</label>
+    <input type="text" class="form_control" name="doctorID" value="{{patient['doctor_id']}}" required>
+  </div>
+  <div class="mb-3">
+    <label for="nurseID" class="form-label">Nurse Identifier</label>
+    <input type="text" class="form_control" name="nurseID" value="{{patient['nurse_id']}}" required>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name: </label>
+    <input type="text" class="form_control" name="firstName" value="{{patient['first_name']}}" required>
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name: </label>
+    <input type="text" class="form_control" name="lastName" value = "{{patient['last_name']}}"required>
+  </div>
+  <div class="mb-3">
+    <label for="roomNumber" class="form-label">Room Number: </label>
+    <input type="text" class="form_control" name="roomNumber" value = "{{patient['room_number']}}"required>
+  </div>
+  <div class="mb-3">
+    <label for="dateAdmitted" class="form-label">Date Admitted: </label>
+    <input type="text" class="form_control" name="dateAdmitted" value = "{{patient['date_admitted']}}"required>
+  </div>
+
+  <button type="submit" class="btn btn-info" id="submitButton">Submit</button>
+</form>
+{% endblock %}

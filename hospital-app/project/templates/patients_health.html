@@ -1,0 +1,29 @@
+<!-- just need to the update/delete lines -->
+{% extends "base.html" %}
+{% block body %}
+      <h1>Patient Vitals</h1>
+      {% if patients_health|length < 1 %} <!-- vertical bar replaces . in Jinja-->
+      <p>There is no health information</p>
+      {% else %}
+      <table class="table">
+        <tr>
+          <th>Patient Number Identifier</th>
+          <th>Body Temperature in F</th>
+          <th>Blood Pressure</th>
+          <th>Respiration Rate (RR) </th>
+          <th>Pulse Rate (BPM)</th>
+          <th>Vitals Time Taken</th>
+        </tr>
+      {% for patient_health in patients_health %}
+      <tr>
+          <td>{{patient_health["patient_health_id"]}}</td>
+          <td>{{patient_health["body_temp_in_f"]}}</td>
+          <td>{{patient_health["blood_pressure"]}}</td>
+          <td>{{patient_health["respiration_rate_per_min"]}}</td>
+          <td>{{patient_health["pulse_rate_per_min"]}}</td>
+          <td>{{patient_health["vitals_time_taken"]}}</td>
+      </tr>
+{% endfor %}
+      </table>
+      {% endif %}
+{% endblock %}

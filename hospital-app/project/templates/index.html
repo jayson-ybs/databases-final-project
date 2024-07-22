@@ -1,0 +1,16 @@
+<!-- I think this is okay, don't need to edit anything else for now -->
+{% extends "base.html" %}
+{% block body %}
+      <h1>Hospital Database</h1>
+      <p>A website to navigate through a hospital: patient general and health information, nurses information and doctors information.</p>
+      
+      <h2>Hospital Information</h2>
+      <div class="list-group">
+        <a href="doctors" class="list-group-item-action">Doctors</a>  <!-- first quote is a link to the html file. last word refers to text of the link -->
+        <a href="nurses" class="list-group-item-action">Nurses</a>
+        <a href="patients" class="list-group-item-action">Patients</a>
+        <a href="patient_health" class="list-group-item-action">Patient Health</a>
+      </div>
+{% endblock %}
+
+

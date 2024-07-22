@@ -1,0 +1,25 @@
+<!-- just need to the update/delete lines -->
+{% extends "base.html" %}
+{% block body %}
+      <h1>Doctors</h1>
+      {% if doctors|length < 1 %} <!-- vertical bar replaces . in Jinja-->
+      <p>There are no doctors.</p>
+      {% else %}
+      <table class="table">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Extension Number</th>
+          <th>Specialization</th>
+        </tr>
+      {% for doctor in doctors %}
+      <tr>
+          <td>{{doctor["first_name"]}}</td>
+          <td>{{doctor["last_name"]}}</td>
+          <td>{{doctor["extension_number"]}}</td>
+          <td>{{doctor["specialization"]}}</td>
+      </tr>
+{% endfor %}
+      </table>
+      {% endif %}
+{% endblock %}

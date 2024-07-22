@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+  <h1>Patients</h1>
+  <a href="/patient" class="btn btn-dark">Add a new patient</a><br/>
+
+  {% if patients|length < 1 %}
+  <p>There are no patients</p>
+  {% else %}
+  <table class="table">
+    <tr>
+      <th>First Name</th> <!--rows-->
+      <th>Last Name</th>
+      <th>Room Number</th>
+      <th>Date Admitted</th>
+    </tr>
+  {% for patient in patients %}
+  <tr>
+      <td>{{patient["first_name"]}}</td>
+      <td>{{patient["last_name"]}}</td>
+      <td>{{patient["room_number"]}}</td>
+      <td>{{patient["date_admitted"]}}</td>
+      <td>
+        <a href="patient/{{patient['patient']}}" class="btn btn-info">Update</a>&nbsp;&nbsp;
+        <a href="patient/delete/{{patient['patient_id']}}" class="btn btn-danger">Delete</a>
+      </td>
+  </tr>
+{% endfor %}
+  </table>
+  {% endif %}
+{% endblock %}
